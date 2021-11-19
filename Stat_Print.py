@@ -3,30 +3,33 @@
 # Takes a dictionary in the form:
 # { value: amount of value }
 
-def printStats(stats, width, height):
-    keys = stats.keys()
+# TODO:
+# Rework width resize to fit ranges not easily divisible by the width
 
+def printStats(stats, width, height):
+
+    keys = stats.keys()
     minVal = min(keys)
     maxVal = max(keys)
     valRange = maxVal - minVal
 
     data = {}
 
+    # Resize data to correct width
     for value in stats:
-        pos = round((value-minVal)/valRange*(width-1))
+        pos = round((value - minVal) / valRange * (width - 1))
         if pos in data:
             data[pos] += stats[value]
         else:
             data[pos] = stats[value]
 
-    dataKeys = data.keys()
-
+    # Stretch to correct height
     maxData = max(data.values())
-
     for n in data:
-        data[n] *= height/maxData
+        data[n] *= height / maxData
 
-    print("="*width)
+    # Print data
+    print("=" * width)
     for y in reversed(range(height)):
         for x in range(width):
             if x in data and data[x] >= y:
@@ -34,9 +37,4 @@ def printStats(stats, width, height):
             else:
                 print(" ", end="", flush=True)
         print()
-    print("="*width)
-
-
-
-
-printStats({1:2,2:3,5:1},80,5)
+    print("=" * width)
