@@ -6,27 +6,27 @@
 # TODO:
 # Rework width resize to fit ranges not easily divisible by the width
 
-def printStats(stats, width, height):
-
+def print_stats(stats, width, height):
+    '''take statistics and print a graph'''
     keys = stats.keys()
-    minVal = min(keys)
-    maxVal = max(keys)
-    valRange = maxVal - minVal
+    val_min = min(keys)
+    val_max = max(keys)
+    val_range = val_max - val_min
 
     data = {}
 
     # Resize data to correct width
     for value in stats:
-        pos = round((value - minVal) / valRange * (width - 1))
+        pos = round((value - val_min) / val_range * (width - 1))
         if pos in data:
             data[pos] += stats[value]
         else:
             data[pos] = stats[value]
 
     # Stretch to correct height
-    maxData = max(data.values())
+    data_max = max(data.values())
     for n in data:
-        data[n] *= height / maxData
+        data[n] *= height / data_max
 
     # Print data
     print("=" * width)
