@@ -19,9 +19,12 @@ def print_stats(stats, width, height):
     for value in stats:
         pos = round((value - val_min) / val_range * (width - 1))
         if pos in data:
-            data[pos] += stats[value]
+            data[pos].append(stats[value])
         else:
-            data[pos] = stats[value]
+            data[pos] = [stats[value]]
+    for value in data:
+        data[value] = sum(data[value]) / len(data[value])
+
 
     # Stretch to correct height
     data_max = max(data.values())
