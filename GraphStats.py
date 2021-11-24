@@ -1,7 +1,7 @@
-#!/usr/bin/python3
+'''Takes a dictionary in the form {value: amount of value} and prints a graph'''
 
-# Takes a dictionary in the form:
-# { value: amount of value }
+__version__ = "0.1.0"
+__author__ = "Pie Thrower"
 
 # TODO:
 # Rework width resize to fit ranges not easily divisible by the width
@@ -24,7 +24,6 @@ def print_stats(stats, width, height):
             data[pos] = [stats[value]]
     for value in data:
         data[value] = sum(data[value]) / len(data[value])
-
 
     # Stretch to correct height
     data_max = max(data.values())
