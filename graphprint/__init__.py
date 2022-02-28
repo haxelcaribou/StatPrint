@@ -1,7 +1,7 @@
 '''Takes a dictionary in the form {value: amount of value} and prints a graph'''
 
 __version__ = "0.1.0"
-__author__ = "Pie Thrower"
+__author__ = "Haxel Caribou"
 
 # TODO:
 # Rework width resize to fit ranges not easily divisible by the width
