@@ -1,6 +1,6 @@
 '''Takes a dictionary in the form {value: amount of value} and prints a graph'''
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 __author__ = "Haxel Caribou"
 
 # TODO:
